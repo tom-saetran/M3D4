@@ -31,7 +31,7 @@
                 <p class="lead text-muted">Ooooooh buttons ^w^</p>
                 <small class="text-muted">Click on them already!</small>
                 <p>
-                    <input type="text" class="form-control mb-2" id="searchField" placeholder="Search..." onkeyup="searchUpdate()" />
+                    <input type="text" class="form-control mb-2" id="inputText" placeholder="Search..." onkeyup="searchUpdate()" />
                     <a href="#" onclick="getProducts()" class="btn btn-primary my-2">Load Books</a>
                     <a href="#" onclick="emptyCart()" class="btn btn-secondary my-2">Clear Cart</a>
                 </p>
@@ -92,7 +92,12 @@
             }
 
             const searchUpdate = () => {
-                console.log("hi mom")
+                const query = document.getElementById("inputText").value
+
+                if (query.length < 3) return
+
+                let filter = query
+                console.log(filter)
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
