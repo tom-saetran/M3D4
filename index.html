@@ -115,7 +115,12 @@
                 console.log(filter)
 
                 const allElements = document.getElementById("container-list").children
-                console.log(allElements)
+                console.log(filterItems(allBooks, filter))
+            }
+
+            const filterItems = (array, query) => {
+                const filteredBooks = array.filter(book => book.title.toLowerCase().includes(query))
+                console.log(filteredBooks)
             }
 
             const openModal = id => {
