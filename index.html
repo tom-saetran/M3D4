@@ -14,8 +14,8 @@
             
             [EXTRA]
             -----8) Add a "clean cart" button, to clean the whole list.
-            9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
-            10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
+            ---9) Create a second "detail page" for the product. When the user clicks on a product name, the app should redirect him to the secondary page, passing the ASIN in query string
+            --10) In page "detail" show some details of the selected product (https://striveschool-api.herokuapp.com/books/1940026091 to fetch the details of a specific book)
         -->
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +40,21 @@
 
         <div id="container-list" class="container row"></div>
         <div id="container-cart" class="container row"></div>
+
+        <div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="modalLabel">More Info...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body"></div>
+                    <img id="modalImg" src="" />
+                </div>
+            </div>
+        </div>
         <script>
             let allBooks = []
             const getProducts = () => {
@@ -98,6 +113,16 @@
 
                 let filter = query
                 console.log(filter)
+            }
+
+            const openModal = id => {
+                const imageUrl = document.getElementById(id).getAttribute("src")
+                const modalImgContainer = document.getElementById("modalImg")
+                const modalLabel = document.getElementById("modalLabel")
+
+                modalImgContainer.setAttribute("src", imageUrl)
+                const title = allBooks.find(book => book.asin === id.slice(3))
+                modalLabel.innerText = title.title
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
