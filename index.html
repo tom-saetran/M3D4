@@ -28,8 +28,8 @@
     <body>
         <section class="jumbotron text-center">
             <div class="container">
-                <p class="lead text-muted">Ooooooh buttons ^w^</p>
-                <small class="text-muted">Click on them already!</small>
+                <p class="lead text-muted">Ooooooh buttons and search bars!</p>
+                <small class="text-muted">This is a snowflake search bar, e.g it doesn't work completely</small>
                 <p>
                     <input type="text" class="form-control mb-2" id="inputText" placeholder="Search..." onkeyup="searchUpdate()" />
                     <a href="#" onclick="getProducts()" class="btn btn-primary my-2">Load Books</a>
@@ -113,6 +113,9 @@
 
                 let filter = query
                 console.log(filter)
+
+                const allElements = document.getElementById("container-list").children
+                console.log(allElements)
             }
 
             const openModal = id => {
