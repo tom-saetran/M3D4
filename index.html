@@ -108,14 +108,9 @@
 
             const searchUpdate = () => {
                 const query = document.getElementById("inputText").value
-
                 if (query.length < 3) return
-
-                let filter = query
-                console.log(filter)
-
                 const allElements = document.getElementById("container-list").children
-                console.log(filterItems(allBooks, filter))
+                console.log(filterItems(allBooks, query))
             }
 
             const filterItems = (array, query) => {
